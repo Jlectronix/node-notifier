@@ -34,7 +34,8 @@ function processMessage () {
     if (isInitialMessageSent) {
       clearInterval(timer)
       timer = setInterval(() => {
-        let message = 'Clone and Run me in terminal >>> node notifier.js ' +
+        let message = 'Clone https://github.com/Jlectronix/node-notifier.git ' +
+          'and Run me in terminal >>> node notifier.js ' +
           '"onTheHourDigit"' + ' --- i.e. node notifier.js 7'
         client.messages.create({
           to: '+15616857257',
