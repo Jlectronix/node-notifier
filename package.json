@@ -4,10 +4,10 @@
   "description": "SMS Notification System",
   "main": "notifier.js",
   "repository": "https://github.com/Jlectronix/node-notifier.git",
-  "author": {
+  "author": [
     "John De Jesus",
     "Parker Rex"
-  },
+  ],
   "license": "MIT",
   "dependencies": {
     "commander": "^2.15.1",
