@@ -1,0 +1,14 @@
+{
+  "name": "Notifier",
+  "version": "1.0.0",
+  "description": "SMS Notification System",
+  "main": "notifier.js",
+  "repository": "https://github.com/Jlectronix/node-notifier.git",
+  "author": "John De Jesus",
+  "license": "MIT",
+  "dependencies": {
+    "commander": "^2.15.1",
+    "request": "^2.87.0",
+    "twilio": "^3.17.1"
+  }
+}
