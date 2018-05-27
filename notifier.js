@@ -24,7 +24,7 @@ function processMessage () {
         body.currently.temperature + '9\xB0 F.'
 
       client.messages.create({
-        to: '+15616857257', // personal
+        to: '+15616999883', // personal
         from: '+15615670246', // twilio
         body: message
       })
@@ -38,7 +38,7 @@ function processMessage () {
           'and Run me in terminal >>> node notifier.js ' +
           '"onTheHourDigit"' + ' --- i.e. node notifier.js 7'
         client.messages.create({
-          to: '+15616857257',
+          to: '+15616999883',
           from: '+15615670246',
           body: message
         })
