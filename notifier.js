@@ -8,14 +8,6 @@ const defaultLng = '-80.065902'
 const weatherUrl =
   `https://api.darksky.net/forecast/0c43df5d396f06c6a950887c129ab963/${defaultLat},${defaultLng}`
 
-var count = 0
-var isInitialMessageSent = false
-
-var timer = setInterval(() => {
-  console.log('Check weather every 30 seconds - so far -> ' + count++)
-  processMessage()
-}, 30000)
-
 function processMessage () {
   request(weatherUrl, { json: true }, (err, resp, body) => {
     if (err) {
@@ -54,3 +46,10 @@ function processMessage () {
     }
   })
 }
+
+var count = 0
+var isInitialMessageSent = false
+var timer = setInterval(() => {
+  console.log('Check weather every 30 seconds - so far -> ' + count++)
+  processMessage()
+}, 30000)
