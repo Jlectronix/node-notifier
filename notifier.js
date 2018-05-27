@@ -16,20 +16,17 @@ function processMessage () {
       return
     }
 
-    var time = new Date(body.currently.time * 1000)
-    if (time.getHours() === parseInt(args[0])) {
-      let message = 'Automated Message from Dej Notification System. ' +
-        'Rise and shine San Diago! It is ' + time.toLocaleString() + '. ' +
-        'Weather is ' + body.currently.summary + ' with an amazing temperature of ' +
-        body.currently.temperature + '9\xB0 F.'
+    let message = 'Automated Message from Dej Notification System. ' +
+      'Rise and shine San Diago! It is ' + new Date().toLocaleString() + '. ' +
+      'Weather is ' + body.currently.summary + ' with an amazing temperature of ' +
+      body.currently.temperature + '9\xB0 F.'
 
-      client.messages.create({
-        to: '+15616999883', // personal
-        from: '+15615670246', // twilio
-        body: message
-      })
-      isInitialMessageSent = true
-    }
+    client.messages.create({
+      to: '+15616999883', // personal
+      from: '+15615670246', // twilio
+      body: message
+    })
+    isInitialMessageSent = true
 
     if (isInitialMessageSent) {
       clearInterval(timer)
@@ -52,5 +49,8 @@ var count = 0
 var isInitialMessageSent = false
 var timer = setInterval(() => {
   console.log('Check weather every 30 seconds - so far -> ' + count++)
-  processMessage()
+  if (new Date().getHours() === parseInt(args[0])) {
+    console.error('in')
+    processMessage()
+  }
 }, 30000)
