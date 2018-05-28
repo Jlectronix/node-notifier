@@ -12,18 +12,17 @@ function processMessage () {
   request(weatherUrl, { json: true }, (err, resp, body) => {
     if (err) {
       console.error('Issue encountered', err)
-      // console.log('Weather service data ->', body)
       return
     }
 
     let message = 'Automated Message from Dej Notification System. ' +
       'Rise and shine San Diago! It is ' + new Date().toLocaleString() + '. ' +
-      'Weather is ' + body.currently.summary + ' with an amazing temperature of ' +
-      body.currently.temperature + '9\xB0 F.'
+      'Weather condition: ' + body.currently.summary + ' with an amazing temperature of ' +
+      Math.round(body.currently.temperature) + '\xB0 F.'
 
     client.messages.create({
-      to: '+15616999883', // personal
-      from: '+15615670246', // twilio
+      to: args[1], // personal
+      from: args[2], // twilio
       body: message
     })
     isInitialMessageSent = true
@@ -32,11 +31,11 @@ function processMessage () {
       clearInterval(timer)
       timer = setInterval(() => {
         let message = 'Clone https://github.com/Jlectronix/node-notifier.git ' +
-          'and Run me in terminal >>> node notifier.js ' +
-          '"onTheHourDigit"' + ' --- i.e. node notifier.js 7'
+          'and Run me in terminal >>> ' +
+          '--- i.e. node notifier.js 7 +15551234567 +15554443333'
         client.messages.create({
-          to: '+15616999883',
-          from: '+15615670246',
+          to: args[1],
+          from: args[2],
           body: message
         })
         clearInterval(timer)
